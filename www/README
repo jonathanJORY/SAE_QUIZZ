@@ -1,0 +1,4 @@
+# Creer la bd
+sqlite3 database.db
+sqlite> .read fichier.sql
+sqlite> .exit

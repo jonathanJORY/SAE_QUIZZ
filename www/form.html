@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>formulaire </title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<div class="login-box">
+  <h2>Informations</h2>
+  <form id="formulaire" action="reponse.php"  method="post">
+    <p class="user-box">
+      <input type="text" id="nom" name="nom" value="bob" required>
+      <label for="nom">Nom</label>
+    </p>
+    <p class="user-box">
+      <input type="text" id="prenom" name="prenom" value="bob" required>
+      <label for="prenom">Prénom</label>
+    </p>
+    <p class="user-box">
+      <input type="email" type="email" id="email" name="email" placeholder="votreemail@provider.com" value="bob@ob.com" required>
+      <label for="email">Adresse Mail</label>
+    </p>
+    <p class="user-box">
+      <input type="tel" name="tel" id="tel" pattern="[\d]{10}" placeholder="0609316756"title="Entrez un telephone avec 10 chiffres" value="0606060606" required>
+      <label for="tel">Votre numéro de téléphone :</label>
+    </p>
+    <p class="user-box">
+      <input type="date" id="date" name="trip-start" value="2002-12-12" max='2022-12-12' title="Vous devez avoir plus de 16 ans" required>
+      <label for="date">Date de naissance :</label>
+    </p>
+    <p>
+      Qui sont les fréres de Luffy ?
+      <br/>
+      Sabot<input type="checkbox" name="Sabot">
+      Ace<input type="checkbox" name="Ace">
+      Garp<input type="checkbox" name="Garp">
+      Autre<input type="checkbox" name="Autre">
+    </p>
+    <p>
+      Le quel est mort à Marine Ford ?
+      <br/>
+      Ace<input type="radio" name="mort" value="Ace">
+      Sabot<input type="radio" name="mort" value="Sabot"></br>
+      Garp<input type="radio" name="mort" value="Garp">
+      Shanks<input type="radio" name="mort" value="Shanks"></br>
+      Autre<input type="radio" name="mort" value="Autre">
+    </p>
+    <p>
+      Quel est votre personnage favoris ?
+      <input type="text" name="favoris">
+    </p>
+    <p>
+      Quel Shichibukai est le rival de Shanks ?
+      <select name="Shichibukai">
+        <option value="Crocodile">Crocodile</option>
+        <option value="Baggy">Baggy</option>
+        <option value="Marshall D Teach" selected>Marshall D Teach</option>
+        <option value="Boa Hancock">Boa Hancock</option>
+        <option value="Dracule Mihawk">Dracule Mihawk</option>
+      </select>
+    </p>
+    <p>
+      <input type="submit" value="Repondre">
+    </p>
+  </form>
+</div>
+</html>
