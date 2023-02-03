@@ -1,7 +1,7 @@
 CREATE TABLE QUESTION (
   questionID INT PRIMARY KEY,
   questionText VARCHAR(255),
-  questionType VARCHAR(30),
+  questionType VARCHAR(30)
 );
 
 CREATE TABLE REPONSE (
