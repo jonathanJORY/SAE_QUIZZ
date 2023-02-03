@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Questionnaire </title>
+</head>
+
+<div class="login-box">
+  <h2>Creer un questionnaire</h2>
+  <form id="formulaire" action="reponse.php"  method="post">
+    <p>
+      <label for="Titre">Titre du Questionnaire</label>
+      <input type="text" id="Titre" name="Titre" required>
+    </p>
+    <p>
+      <label for="Q1Titre">1ère question</label>
+      <input type="text" id="Q1Titre" name="Q1Titre" required>
+    </p>
+    <p>
+      Type 1ère question:
+      <br/>
+      <label for="checkbox">checkbox</label>
+      <input id="checkbox" type="radio" name="1" value="1" onclick="textForType(this)" required>
+      <label for="radio">radio</label>
+      <input id="radio" type="radio" name="1" value="2" onclick="textForType(this)" required>
+      <label for="dropdown">dropdown</label>
+      <input id="dropdown" type="radio" name="1" value="3" onclick="textForType(this)" required>
+      <label for="text">text</label>
+      <input id="text" type="radio" name="1" value="4" onclick="textForType(this)" required>
+    </p>
+    <p>
+      <input type="submit" value="Repondre">
+    </p>
+  </form>
+</div>
+</html>
+<script>
+  function choixTypeQ(numQ){
+    let typesQ = ["checkbox", "radio", "dropdown", "text"];
+    let paragraphe = document.createElement("p");
+    for(let i=0; i<typesQ.length; i++){
+      let label = document.createElement("label");
+      let input = document.createElement("input");
+      input.type = "radio";
+      input.name = numQ;
+      input.id = typesQ[i];
+      input.value = i+1
+      input.onclick = function() {textForType(this)};
+      label.textContent = typesQ[i];
+      label.htmlFor = typesQ[i];
+      paragraphe.append(label);
+      paragraphe.append(input);
+    }
+    return paragraphe;
+  }
+  function addQuestion(last_choix){
+    var numq = parseInt(last_choix.name)+1;
+    let form = document.getElementById("formulaire");
+    let paragraphe = document.createElement("p");
+    let titre = document.createElement("label");
+    let input = document.createElement("input");
+    input.type = "text";
+    input.name = "Q°"+numq+"Titre";
+    input.id = "Q°"+numq+"Titre";
+    let label = document.createElement("label");
+    label.textContent = numq+"ème Question";
+    label.htmlFor = "Q°"+numq+"Titre";
+    paragraphe.append(label);
+    paragraphe.append(input);
+    form.append(paragraphe);
+    form.append(choixTypeQ(numq));
+  }
+
+  function textForType(idchoix){
+    if (idchoix.value == "4"){
+      addQuestion(idchoix);
+    }
+  }
+</script>

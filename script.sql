@@ -12,7 +12,6 @@ CREATE TABLE REPONSE (
   FOREIGN KEY (questionID) REFERENCES question(questionID)
 );
 
-
 CREATE TABLE QUESTIONNAIRE (
   questionnaireID INT PRIMARY KEY,
   questionnaireName VARCHAR(255),
