@@ -30,7 +30,7 @@ class Question extends SimpleQuestion {
     }
 }
     
-
+/*
 $questions = array(
     new Question(
             1,
@@ -94,7 +94,7 @@ function creer_question($questions) {
 }
 
 creer_question($questions);
-
+*/
 ?>
 </body>
 </html>
