@@ -34,11 +34,11 @@
           </p>
           <input id="buValider1" type="button" name="1"value="valider question" onclick="validQuestion(this)">
         </div>
-        <input id="bu1" type="button" name="1"value="ajouter question" disabled="true" onclick="addQuestion(this)">
+        <input id="bu1" type="button" name="1"value="suivant" disabled="true" onclick="addQuestion(this)">
       </section>
     </div>
     <p>
-      <input type="submit" value="Envoyer">
+      <input type="button" value="Terminer">
     </p>
   </form>
 </div>
@@ -134,3 +134,9 @@
   }
 
 </script>
+<?php
+
+require("question.php");
+
+
+?>
