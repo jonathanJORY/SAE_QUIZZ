@@ -14,7 +14,7 @@
       <label for="Description">Description du Questionnaire</label>
       <input type="text" id="Description" name="Description" required>
     <p>
-      <input type="summit">
+      <input type="summit" value="Créer">
     </p>
   </form>
 </div>
