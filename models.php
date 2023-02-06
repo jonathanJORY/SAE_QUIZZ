@@ -16,6 +16,30 @@ class Questionnaire {
         $this->titre = $titre;
         $this->description = $description;
     }
+    
+    public function getId() {
+        return $this->id;
+    }
+    
+    public function setId($id) {
+        $this->id = $id;
+    }
+    
+    public function getTitre() {
+        return $this->titre;
+    }
+    
+    public function setTitre($titre) {
+        $this->titre = $titre;
+    }
+    
+    public function getDescription() {
+        return $this->description;
+    }
+    
+    public function setDescription($description) {
+        $this->description = $description;
+    }
 }
 
 class SimpleQuestion {
@@ -29,7 +53,40 @@ class SimpleQuestion {
         $this->id = $id;
         $this->name = $name;
     }
+    
+    public function getType() {
+        return $this->type;
+    }
+    
+    public function setType($type) {
+        $this->type = $type;
+    }
+    
+    public function getText() {
+        return $this->text;
+    }
+    
+    public function setText($text) {
+        $this->text = $text;
+    }
+    
+    public function getId() {
+        return $this->id;
+    }
+    
+    public function setId($id) {
+        $this->id = $id;
+    }
+    
+    public function getName() {
+        return $this->name;
+    }
+    
+    public function setName($name) {
+        $this->name = $name;
+    }
 }
+    
     
 class Question extends SimpleQuestion {
     public $repPossibles;
@@ -39,6 +96,17 @@ class Question extends SimpleQuestion {
         parent::__construct($id, $type, $text,  $name);
         $this->repPossibles = $repPossibles;
         $this->bonneRep = $bonneRep;
+    }
+    public function getRepPossibles() {
+        return $this->repPossibles;
+    }
+    
+    public function setRepPossibles($repPossibles) {
+        $this->repPossibles = $repPossibles;
+    }
+    
+    public function getBonneRep() {
+        return $this->bonneRep;
     }
 }
 
