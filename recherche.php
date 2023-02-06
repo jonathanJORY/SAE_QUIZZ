@@ -18,21 +18,15 @@ if (!empty($wanted)){
     $stmt->bindParam(':id', $wanted, PDO::PARAM_INT);
     try {
         $stmt->execute();
-        var_dump($stmt->errorInfo());
     } catch (PDOException $e) {
         echo "Erreur lors de l'exécution de la requête : " . $e->getMessage();
     }
-    
     if (!$stmt)
         echo "Pb d'accès au Question";
     else{
-        if ($stmt->rowCount()==0) 
-            {echo "Inconnu !<br/>";}
-        else{
-            foreach ($stmt as $row)
-                echo $row['questionID']."'>".$row['questionText']." ".$row['questionType']."<br/>";
-            }
-        }
+        foreach ($stmt as $row)
+            echo $row['questionID']."'>".$row['questionText']." ".$row['questionType']."<br/>"; 
+    }
 }
 ?>
 </body>
