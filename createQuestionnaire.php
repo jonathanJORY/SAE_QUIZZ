@@ -11,10 +11,10 @@
     <p>
       <label for="Titre">Titre du Questionnaire</label>
       <input type="text" id="Titre" name="Titre" required>
-      <label for="Titre">Titre du Questionnaire</label>
-      <input type="text" id="Titre" name="Titre" required>
+      <label for="Description">Description du Questionnaire</label>
+      <input type="text" id="Description" name="Description" required>
     <p>
-      <input type="summit">
+      <input type="summit" value="Créer">
     </p>
   </form>
 </div>

@@ -6,6 +6,18 @@
 <body>
 <?php
 
+class Questionnaire {
+    public $id;
+    public $titre;
+    public $description;
+    
+    public function __construct($id, $titre, $description) {
+        $this->id = $id;
+        $this->titre = $titre;
+        $this->description = $description;
+    }
+}
+
 class SimpleQuestion {
     public $type;
     public $text;
@@ -27,6 +39,18 @@ class Question extends SimpleQuestion {
         parent::__construct($id, $type, $text,  $name);
         $this->repPossibles = $repPossibles;
         $this->bonneRep = $bonneRep;
+    }
+}
+
+class Contenir {
+    public $questionnaireID;
+    public $questionID;
+    public $questionOrder;
+    
+    public function __construct($questionnaireID, $questionID, $questionOrder) {
+        $this->questionnaireID = $questionnaireID;
+        $this->questionID = $questionID;
+        $this->questionOrder = $questionOrder;
     }
 }
     
