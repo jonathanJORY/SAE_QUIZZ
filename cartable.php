@@ -14,18 +14,18 @@ Interrogation de la table CARNET avec PDO
 <?php
 require_once('connexion.php');
 $connexion=connect_bd();
-$sql="SELECT ID, PRENOM, NOM FROM CARNET";
+$sql="SELECT questionID, questionText, questionType FROM QUESTION";
 $stmt = $connexion->query($sql);
 
 if(!$stmt) echo "Pb d'accès au CARNET";
 else {
 ?>
 <form action="recherche.php" method="GET">
-<select name="ID">
+<select name="questionID">
 <?php
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-    if (!empty($row['NOM'])) {
-        echo "<option value='".$row['ID']."'>".$row['PRENOM']." ".$row['NOM']."</option>\n";
+    if (!empty($row['questionID'])) {
+        echo "<option value='".$row['questionID']."'>".$row['questionText']." ".$row['questionType']."</option>\n";
     }
 }
 ?>
