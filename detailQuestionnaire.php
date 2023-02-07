@@ -2,7 +2,7 @@
 <html>
 <head>
 <title>
-Recherche d'une personne par ID
+detail questionnaire
 </title>
 <meta charset="utf-8">
 </head>
