@@ -15,7 +15,7 @@ $connexion=connect_bd();
 $sql = "INSERT INTO QUESTIONNAIRE (questionnaireName, questionnaireDescription) VALUES (?,?)";
 $stmt = $connexion->prepare($sql);
 $stmt->execute([$nomQuestionnaire, $descQuestionnaire]);
-echo(phpinfo());
+echo "<h3> $nomQuestionnaire </h3>";
 ?>
 </body>
 </html>

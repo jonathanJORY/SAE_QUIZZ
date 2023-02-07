@@ -1,4 +1,6 @@
 # Creer la bd
+# php -c C:\php\php.ini -S localhost:8000
 sqlite3 database.db
 sqlite> .read script.sql
+sqlite> .read insert.sql
 sqlite> .exit

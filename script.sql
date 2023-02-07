@@ -1,49 +1,45 @@
 CREATE TABLE QUESTION (
-  questionID INT PRIMARY KEY,
+  questionID INTEGER PRIMARY KEY,
   questionText VARCHAR(255),
   questionType VARCHAR(30)
 );
 
 CREATE TABLE REPONSE (
-  reponseID INT PRIMARY KEY,
+  reponseID INTEGER PRIMARY KEY,
   reponseText VARCHAR(255),
-  questionID INT,
-  correct BOOLEAN,
+  questionID INTEGER,
+  correct INTEGER,
   FOREIGN KEY (questionID) REFERENCES question(questionID)
 );
 
 CREATE TABLE QUESTIONNAIRE (
-  questionnaireID INT IDENTITY(1,1) NOT NULL,
-  --questionnaireName VARCHAR(255) NOT NULL UNIQUE,
-  questionnaireName VARCHAR(255),
-  questionnaireDescription TEXT,
-  PRIMARY KEY(questionnaireID)
+  questionnaireID INTEGER PRIMARY KEY,
+  questionnaireName VARCHAR(255) UNIQUE,
+  questionnaireDescription TEXT
 );
 
 CREATE TABLE CONTENIR (
-  questionnaireID INT,
-  questionID INT,
-  questionOrder INT,
+  questionnaireID INTEGER,
+  questionID INTEGER,
+  questionOrder INTEGER,
   PRIMARY KEY (questionnaireID, questionID),
   FOREIGN KEY (questionnaireID) REFERENCES QUESTIONNAIRE(questionnaireID),
   FOREIGN KEY (questionID) REFERENCES questions(questionID)
 );
 
 CREATE TABLE USER (
-  userID INT PRIMARY KEY,
+  userID INTEGER PRIMARY KEY,
   userName VARCHAR(255),
   email VARCHAR(255),
   Password VARCHAR(255)
 );
 
 CREATE TABLE RESULTAT (
-  resultatID INT PRIMARY KEY,
-  userID INT,
-  questionnaireID INT,
+  resultatID INTEGER PRIMARY KEY,
+  userID INTEGER,
+  questionnaireID INTEGER,
   questionnaireDate DATE,
-  score INT,
+  score INTEGER,
   FOREIGN KEY (userID) REFERENCES USER(userID),
   FOREIGN KEY (questionnaireID) REFERENCES QUESTIONNAIRE(questionnaireID)
 );
-
-
