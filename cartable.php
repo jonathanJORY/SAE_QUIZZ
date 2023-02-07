@@ -20,7 +20,7 @@ $stmt = $connexion->query($sql);
 if(!$stmt) echo "Pb d'accès au CARNET";
 else {
 ?>
-<form action="recherche.php" method="GET">
+<form action="repondreQuestion.php" method="GET">
 <select name="questionID">
 <?php
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {

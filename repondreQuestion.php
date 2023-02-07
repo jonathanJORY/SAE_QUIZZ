@@ -7,7 +7,10 @@
     <meta charset="utf-8">
 </head>
 <body>
-    <?php $wanted=$_GET["ID"];
+    
+    <?php $wanted=$_GET["questionID"];
+    error_reporting(E_ALL);
+    ini_set("display_errors", 1);
         if (!empty($wanted)){
             echo "<h1>Recherche de $wanted </h1>";
         require_once("models.php");
@@ -17,22 +20,18 @@
         echo"ici";
         $stmt=$connexion->prepare($sql);
         echo"ici";
-        $stmt->bindParam(":id", intval($_GET["ID"]), PDO::PARAM_INT);
+        $stmt->bindParam(":id", $wanted);
         echo"ici";
         $stmt->execute();
+        $error = $stmt->errorInfo();
         echo"ici";
         if (!$stmt) echo "Pb d'accès au CARNET";
         else{
-            if ($stmt->rowCount()==0){
-                echo "Inconnu !<br/>";
-            }
-            else{
-                echo"ici";
-                foreach ($stmt as $row)
-                echo $row["questionText"]." ".$row["questionType"]."<br/>";
+            echo"ici";
+            foreach ($stmt as $row)
+            echo $row["questionText"]." ".$row["questionType"]."<br/>";
             }
             
-        }
         }
     ?>
 </body>
