@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html>
 <head>
@@ -14,13 +13,13 @@ Interrogation de la table QUESTIONNAIRE avec PDO
 <?php
 require_once('connexion.php');
 $connexion=connect_bd();
-$sql="SELECT questionnaireID, questionnaireName, questionnaireDescription FROM QUESTIONNAIRE";
+$sql="SELECT questionnaireID, questionnaireName, questionnaireDescription, questionID FROM QUESTIONNAIRE NATURAL JOIN CONTENIR WHERE questionOrder = 0";
 $stmt = $connexion->query($sql);
 
 if(!$stmt) echo "Pb d'accès au CARNET";
 else {
 ?>
-<form action="detailQuestionnaire.php" method="GET">
+<form action="repondreQuestion.php" method="GET">
 <select name="questionnaireID">
 <?php
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {

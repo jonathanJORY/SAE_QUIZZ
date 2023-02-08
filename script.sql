@@ -75,7 +75,7 @@ INSERT INTO REPONSE (reponseID, reponseText, questionID, correct) VALUES
 (13,"Boa Hancock", 4, false);
 
 INSERT INTO CONTENIR (questionnaireID, questionID, questionOrder) VALUES 
-(1,1,1),
-(1,2,2),
-(1,3,3),
-(1,4,4);
+(1,1,0),
+(1,2,1),
+(1,3,2),
+(1,4,3);
