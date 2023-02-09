@@ -1,11 +1,11 @@
-INSERT INTO QUESTIONNAIRE (questionnaireID, questionnaireName, questionnaireDescription) VALUES 
-(1,"Test 1","ORLEANS"),
-(2,"Test 2","ORLEANS"),
-(3,"Test 3","ORLEANS"),
-(4,"Test 4","ORLEANS"),
-(5,"Test 5","ORLEANS"),
-(6,"Test 6","ORLEANS"),
-(7,"Test 7","ORLEANS");
+INSERT INTO QUESTIONNAIRE (questionnaireName, questionnaireDescription) VALUES 
+("Test 1","ORLEANS"),
+("Test 2","ORLEANS"),
+("Test 3","ORLEANS"),
+("Test 4","ORLEANS"),
+("Test 5","ORLEANS"),
+("Test 6","ORLEANS"),
+("Test 7","ORLEANS");
 
 INSERT INTO QUESTION (questionID, questionText, questionType) VALUES 
 (1,"Qui sont les fréres de Luffy ?","checkbox"),

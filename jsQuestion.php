@@ -1,17 +1,25 @@
-<!DOCTYPE html>
-<html lang="fr">
+<!doctype html>
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Questionnaire </title>
+<title>
+creer question
+</title>
+<meta charset="utf-8">
 </head>
+<body>
+<?php 
+$nomQuestionnaire=$_POST['questionnaireName'];
+$descQuestionnaire=$_POST['questionnaireDescription'];
+require_once('connexion.php');
+$connexion=connect_bd();
+$sql = "INSERT INTO QUESTIONNAIRE (questionnaireName, questionnaireDescription) VALUES (?,?)";
+$stmt = $connexion->prepare($sql);
+$stmt->execute([$nomQuestionnaire, $descQuestionnaire]);
+echo "<h3> Questionnaire: $nomQuestionnaire </h3>";
+?>
 
 <div class="login-box">
-  <h2>Creer un questionnaire</h2>
   <form id="formulaire" action="reponse.php"  method="post">
-    <p>
-      <label for="Titre">Titre du Questionnaire</label>
-      <input type="text" id="Titre" name="Titre" required>
-    </p>
     <div id="question">
 
       <section id="Q1">
@@ -81,21 +89,21 @@
 
   }
   function addQuestion(bu){
-    var numQ = parseInt(bu.name)+1;
-    if (numQ > 2){
-      document.getElementById("bu"+(numQ-2)).disabled = true;
+    var newNumQ = parseInt(bu.name)+1;
+    if (newNumQ > 2){
+      document.getElementById("bu"+(newNumQ-2)).disabled = true;
     }
     let quiz = document.getElementById("question");
     let section = document.createElement("section");
-    section.id = "Q"+numQ;
+    section.id = "Q"+newNumQ;
     
-    section.append(nomQ(numQ));
-    section.append(choixTypeQ(numQ));
+    section.append(nomQ(newNumQ));
+    section.append(choixTypeQ(newNumQ));
 
     let newBu = document.createElement("input");
     newBu.type = "button";
-    newBu.id = "bu"+numQ;
-    newBu.name= ""+numQ;
+    newBu.id = "bu"+newNumQ;
+    newBu.name= ""+newNumQ;
     newBu.value = "ajouter question";
     newBu.onclick = function() {addQuestion(this)};
     section.append(newBu);
@@ -106,8 +114,8 @@
   }
 
   function deleteQuestion(bu){
-    var numQ = parseInt(bu.name)+1;
-    let section = document.getElementById("Q"+numQ);
+    var newNumQ = parseInt(bu.name)+1;
+    let section = document.getElementById("Q"+newNumQ);
     section.remove();
     bu.value = "ajouter question";
     bu.onclick = function() {addQuestion(this)};
@@ -140,3 +148,6 @@ require("question.php");
 
 
 ?>
+
+</body>
+</html>
