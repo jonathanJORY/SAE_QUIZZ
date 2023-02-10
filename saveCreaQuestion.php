@@ -8,7 +8,7 @@ $reponses = array();
 $questionnaireID = $_POST['questionnaireID'];
 
 $stmt = $connexion->prepare("SELECT questionnaireName FROM QUESTIONNAIRE WHERE questionnaireID = :id");
-$stmt->bindParam(':id', $id);
+$stmt->bindParam(':id', $questionnaireID);
 $stmt->execute();
 $result = $stmt->fetch();
 $questionnaireName = $result['questionnaireName'];
@@ -52,15 +52,16 @@ if ($question_type !== 'libre') {
     $stmt->bindParam(':questionID', $question_id);
     $stmt->bindParam(':questionOrder', $question_order);
     $stmt->execute();
-    
-
-    echo '<form action="votre_page.php" method="post">';
-    echo '<input type="hidden" name="question_order" value="' . $question_order . '">';
-    echo '<input type="hidden" name="questionnaireID" value="' . $questionnaireID . '">';
-    echo '<input type="hidden" name="questionnaireName" value="' . $questionnaireName . '">';
-    echo '<input type="submit" value="Submit">';
-    echo '</form>';
-    
-    header('Location: creerQuestion.php');
-    
     ?>
+
+    <form id="myform" action="creerQuestion.php" method="post">
+        <input type="hidden" name="question_order" value="<?php echo $question_order; ?>">
+        <input type="hidden" name="questionnaireID" value="<?php echo $questionnaireID; ?>">
+        <input type="hidden" name="questionnaireName" value="<?php echo $questionnaireName; ?>">
+    </form>
+    
+    <script type="text/javascript">
+        document.getElementById("myform").submit();
+    </script>
+
+    

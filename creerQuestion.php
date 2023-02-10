@@ -20,7 +20,7 @@ $stmt = $connexion->prepare("SELECT * FROM QUESTIONNAIRE WHERE questionnaireName
 $stmt->bindParam(':questionnaireName', $nomQuestionnaire);
 $stmt->execute();
 $questionnaire = $stmt->fetch();
-
+echo "$nomQuestionnaire";
 if (!$questionnaire) {
 // pas de Questionnaire existant avec le même nom
 // Insertion du questionnaire
@@ -38,6 +38,7 @@ else{
 
 echo "<h3> Questionnaire: $nomQuestionnaire </h3>";
 echo "<h4> Question n°$numQuestion </h4>";
+echo  "$questionnaireID";
 ?>
 <form action="saveCreaQuestion.php" method="post">
     <!-- Ajout de l'id  du questionnaire -->
