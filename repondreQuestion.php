@@ -57,7 +57,7 @@
             $reponses[$id_reponse] = $reponseText;
         }
     }
-    echo"<form action='repondreQuestion.php' method='GET'>";
+    echo"<div id='rep' method='GET'>";
     //Avec les informations reccuillie on affiche les reponses
     echo $question_texte;
     if($question_type == "checkbox"){
