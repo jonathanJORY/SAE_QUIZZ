@@ -20,7 +20,6 @@ $stmt = $connexion->prepare("SELECT * FROM QUESTIONNAIRE WHERE questionnaireName
 $stmt->bindParam(':questionnaireName', $nomQuestionnaire);
 $stmt->execute();
 $questionnaire = $stmt->fetch();
-echo "$nomQuestionnaire";
 if (!$questionnaire) {
 // pas de Questionnaire existant avec le même nom
 // Insertion du questionnaire
